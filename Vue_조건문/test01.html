@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .login {
+      width: 300px;
+      margin: 100px auto;
+      border: 1px solid #345;
+      padding: 10px;
+    }
+
+    label {
+      width: 80px;
+      text-align: left;
+      display: inline-block;
+    }
+
+    input[type='text'] {
+      width: 200px;
+    }
+
+    div {
+      margin-bottom: 5px;
+    }
+
+    button {
+      border-radius: 5px;
+      background-color: steelblue;
+      color: white;
+      padding: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="login">
+      <template v-if="user">
+        <!-- 데이터를 묶기 위해 template 사용-->
+        <div>
+          
+        </div>
+      </template>
+      <template v-else>
+        <div>
+          <label>아이디</label>
+          <input type="text" id="id">
+        </div>
+        <div>
+          <label>패스워드</label>
+          <input type="text" id="password">
+        </div>
+        <div>
+          <button>로그인</button>
+        </div>
+        </template>
+    </div>
+
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          user: false
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

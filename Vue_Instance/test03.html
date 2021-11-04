@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>카운트 : {{count}}</h2>
+        <button @click="count++">증가</button>
+    </div>
+</body>
+    <script>
+        let v = new Vue({
+                el:"#app",    // el 은 엘리먼트 약자
+                // data:{
+                //     message: "Hello Vue!!!!"
+                // }
+                data(){
+                    return{
+                        count : 0
+                    }
+                },
+                beforeCreate() {    // vue Instance 생성 후 프록시 처리 전
+                    console.log("beforeCreate method call");
+                    console.log(this.count);
+                },
+                created() { // 프록시 처리 완료
+                    console.log("created method call!!");
+                    console.log(this.count);
+                    console.log(this.$el);
+                },
+                beforeMount() { // 해당 엘리먼트에 대한 정보에 접근한 상태
+                    console.log("BeforeMount method  call!!")
+                    console.log(this.$el); // div#app
+                    console.log(this.$el.innerHTML)
+                },
+                mounted() { // vue 인스턴스의 엘리먼트 안의 각종 정보들이 매칭 되기 전
+                    console.log("mounted method  call!!")
+                    console.log(this.$el); // div#app
+                    console.log(this.$el.innerHTML)
+                },
+                beforeUpdate() {    // 업데이트가 발생 시 실제 업데이트 작업이 되기 전
+                    console.log("beforeUpdated method call!!")
+                    console.log(this.count);
+                    console.log(this.$el);
+                    console.log(this.$el.innerHTML);
+                },
+                updated() { // 업데이트 후
+                    console.log("updated method call!!")
+                    console.log(this.count);
+                    console.log(this.$el);
+                    console.log(this.$el.innerHTML);
+                },
+            });
+    </script>
+</html>

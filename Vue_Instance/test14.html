@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>v-for와 v-if 같이 사용하기</h2>
+        <input type="number" v-model.number="count">
+        <!-- 이렇게 사용하면 안 됨-->
+        <ul>        
+            <li v-for="region in regiones" :key=region.region v-if="region.count ===count">
+                {{region.region}} : {{region.count}}
+            </li>
+        </ul>
+        <!-- 권장 -->
+        <li v-for="region in matchRegion">{{region}}</li>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data(){
+            return{
+                count:0,
+                regiones: [
+                    {region: "부산", count:1},
+                    {region: "구미", count:2},
+                    {region: "대전", count:3},
+                    {region: "구미", count:4},
+                    {region: "서울", count:5},
+                    
+                ]
+            
+            }
+        },
+        computed:{
+            matchRegion(){
+                
+                return this.regiones.filter(region => region.count==this.count) 
+                // regiones에서 region.count가 vue data에 정의된 count와 같은 객체들을 matchRegion에 저장하겠다.
+            }
+            
+            /*
+            ssafy => 
+            =
+            function(ssafy){
+
+            }
+            */
+        }
+        
+    })
+</script>
+
+</html>

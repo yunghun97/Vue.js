@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="content">
+            <h2>v-for</h2>
+            <h3>객체배열</h3>
+            <ul>
+                <label for="campusName">캠퍼스 이름 : </label>
+                <input type="text" id="campusName" v-model="campusName">
+            </ul>
+            
+            <ul>
+                <li v-for="(region, index) in regions"
+                    v-if="region.campusName.includes(campusName)"
+                >
+                    <div class="region">
+                        <p>{{index+1}}. {{region.campusName}}({{region.areaTitle}})</p>
+                        <p class="pl-15">{{region.count}}</p>
+                        <p class="pl-15">{{region.addr}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                    campusName: ``,
+                    regions : [
+                    {
+                        campusName: '광주 캠퍼스',
+                        areaTitle: '삼성전자 광주 사업장',
+                        addr: '광주광역시',
+                        count: 3
+                    },
+                    {
+                        campusName: '구미 캠퍼스',
+                        areaTitle: '삼성전자 구미 사업장',
+                        addr: '구미 공단',
+                        count: 3
+                    },
+                    {
+                        campusName: '대전 캠퍼스',
+                        areaTitle: '삼성화재 유성 연수원',
+                        addr: '대전광역시',
+                        count: 5
+                    },
+                    {
+                        campusName: '서울 캠퍼스',
+                        areaTitle: '멀티캠퍼스',
+                        addr: '서울특별시',
+                        count: 7
+                    },
+                    {
+                        campusName: '부울경 캠퍼스',
+                        areaTitle: '삼성전자 부산연수원',
+                        addr: '부산광역시',
+                        count: 6
+                    }
+                ],
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
