@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function showMember(member){
+            console.log(member.id)
+            console.log(member.name)
+            console.log(member.age)
+        }
+
+        function showMember2({id, name, age}){    // 객체 디스트럭처링 활용
+            console.log(id)
+            console.log(name)
+            console.log(age)
+        }
+
+        const member ={
+            id: 1,
+            name: 'Gwon',
+            age: 26
+        }
+        showMember(member);
+        showMember2(member);
+
+    </script>
+</body>
+</html>

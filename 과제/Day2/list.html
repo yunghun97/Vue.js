@@ -23,12 +23,13 @@
                     <th>4</th>
                 </tr>
             </thead>
-            <tbody v-for="(value, index) in list.data" :key="list.data[index].centerName">
-                <tr>
-                    <td>{{index+1}}</td>
-                    <td>{{value.centerName}}</td>
-                    <td>{{value.createdAt}}</td>
-                    <td>{{value.updatedAt}}</td>
+            
+            <tbody v-if="centerList && centerList.length > 0">
+                <tr v-for="center of centerList">
+                    <td class="content">{{center.id}}</td>
+                    <td class="content"><a class="link" href="#">{{center.centerName}}</a></td>
+                    <td class="content">{{center.createdAt}}</td>
+                    <td class="content">{{center.updatedAt}}</td>
                 </tr>
             </tbody>
         </table>
@@ -39,7 +40,7 @@
         el: "#app",
         data() {
             return {
-                list: centerList
+                centerList: centerList.data,
             }
         },
     })

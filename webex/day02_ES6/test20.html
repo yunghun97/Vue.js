@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">  // default 는 일치하지 않는 이름에 default 객체 할당한다.
+        import cal, {mul} from './test20-module.js';
+        console.log('mul',mul(1,2));
+        console.log('cal', cal);
+        console.log('cal.add', cal.add(1,2));
+    </script>
+</body>
+</html>

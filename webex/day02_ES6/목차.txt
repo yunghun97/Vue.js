@@ -1,0 +1,20 @@
+                        E6 정리
+test01.html - let
+test02.html - const
+test03.html - 객체의 간단한 프로퍼티 설정
+test04.html - for
+test05.html - backtick
+test06.html - arrow function
+test07.html - 객체 디스트럭처링(기본 문법)
+test08.html - 객체 디스트럭처링(함수의 리턴값을 받는 것)
+test09.html - 객체 디스트럭처링(함수의 매개변수에 적용)
+test10.html - spread 연산자
+test11.html - spread연산자(rest 파라미터)
+test12.html - spread연산자(배열에 활용)
+test13.html - spread연산자(객체에 활용)
+test14.html - Promise (비동기 처리할 때 사용)
+test15.html - Promise (resolve, reject 개념 이해)
+test16.html - Promise (resolve, reject 실행하기)
+test17.html - Promise (Promise와 ajax 형태보기)
+test18.html - Promise (axios 형태 만들기)
+test19.html - 

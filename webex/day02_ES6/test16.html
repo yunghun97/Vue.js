@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            (비동기 : 다른 작업이 끝날때 까지 기다리지 않고 실행)
+            (동기 : 다른 작업이 끝낼때 까지 대기)
+            비동기 연산이 종료된 이후의 결과값이나 실패 이유를 처리하기 위한 처리기를 연결할 수 있도록 합니다.
+            프로미스를 사용하면 비동기 메서드에서 마치 동기 메서드처럼 값을 반환할 수 있습니다.
+            다만 최종 결과를 반환하지는 않고, 대신 프로미스를 반환해서 미래의 어떤 시점에 결과를 제공합니다.
+            
+            형식 : new Promise(executor)
+            
+            executor는 콜백함수 지정
+            
+            executor 함수는 아래의 형태이다.
+            function(resolve, reject) {
+            // 성공시 resolve 함수 실행
+            // 실패시 reject 함수 실행
+
+        */
+        const promise1 = new Promise((resolve, reject) => {
+            console.log('비동기 코드 호출함');
+            setTimeout(() => {
+                console.log('비동기 코드 실행 결과');                
+                // resolve();  // 성공시(resolve)then 함수를 호출한다는 뜻
+                // reject();   // 실패시 (reject)catch 함수 실행한다
+                resolve('서버에서 전송된 데이터');
+            }, 3000);
+        });
+        // Promise 객체를 생성 시 콜백함수(executor)의 첫번째 매개변수(resolve)를
+        // 실행할 때 then 함수가 호출된다.
+        // .then(function)
+
+        // 두번째 매개변수(reject)를 호출할 때 catch 함수가 호출된다.
+        promise1.then(function(data){
+            console.log('성공시 호출되는 함수');
+            console.log(data);
+        })
+        .catch(function(){
+            console.log('실패시 호출되는 함수')
+        })
+    </script>
+</body>
+
+</html>

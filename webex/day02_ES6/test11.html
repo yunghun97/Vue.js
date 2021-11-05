@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* 
+            매개변수를 동적으로 처리하기 위해서 es5까지는 arguments 사용
+            es6의 화살표 함수를 사용하면 arguments를 사용할 수 없다.
+        */
+        function func1(){
+            console.log('func1'); 
+            
+            for(let v of arguments){    // arguments 함수를 호출한 매개변수를 받아준다.
+                console.log(v);
+            }
+        }
+
+        // 자바 스크립트는 오버로딩의 개념이 없어서 매개변수 개수가 달라도 함수 호출 실행
+        
+        /*let func1 = () => {
+            console.log('func1'); 
+            
+            for(let v of arguments){    // arguments 함수를 호출한 매개변수를 받아준다.
+                console.log(v);
+            }
+        }*/
+
+        func1(1);
+        func1(1,2);
+        func1(1,2,3);
+
+        // es6 부터는 spread연산자를 이용한 rest파라미터가 지원된다.
+        let func2 = (...args) =>{   // ...args는 rest파라미터라 한다.
+            console.log('arrow func2');
+            // arguments
+            for(let v of args){
+                console.log(v);
+            }
+        }
+
+        func2(1);
+        func2(1,2);
+        func2(1,2,3);
+    </script>
+</body>
+</html>

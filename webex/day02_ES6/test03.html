@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const id = 'hong',
+    name = '홍길동',
+    age = 20;
+    // es5
+    const member1 = {
+        id: id,
+        name: name,
+        age: age,
+        info: function(){
+            console.log('member1 - info');
+        }
+    };
+    // 원래 하던거
+    console.log(member1.id, member1.name, member1.age);
+    member1.info();
+
+    // es6 에서 적용
+    const member2 = {   // 프로퍼티의 값과 사용하는 변수의 이름이 같으면 생략 가능
+        id,
+        name,
+        age,
+        info(){ // info: function() -> info() 으로 단축가능
+            console.log('member2 - info');
+        }
+    };
+    console.log(member2.id, member2.name, member2.age);
+    member2.info();
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr1 = [4,5,6,7];
+        // es5 기준 두개의 배열 합치기 : concat
+        const arr2 = arr1.concat([1,2,3]);
+        console.log(arr2);
+
+        // es6 배열 합치기 : spread
+        const arr3 = [...arr1, 1,2,3,4];
+        console.log(arr3);
+
+        // spread 연산자 사용 기존 배열에 합치기 (뒤에)
+        const arr4 = [1,2,3];
+        arr4.push(...arr1);
+        console.log(arr4)
+
+        // spread 연산자 사용 기존 배열에 합치기 (앞에)
+        const arr5 = [1,2,3];
+        arr5.unshift(...arr1);
+        console.log(arr5)
+
+        // 기존 배열에 삭제
+        // splice(시작위치, 삭제할 개수, 추가할 값
+        const arr6 = [1,2,3];
+        arr6.splice(0,1, ...arr1);
+        console.log(arr6)   // 4,5,6,7,2,3 출력
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        let : es6
+            - ecma6부터 지원
+            - 블럭단위 지원 {}
+            - 중복선언이 불가능
+        var : ex5
+    */
+    var msg = 1;
+    if(msg===1){
+        var msg = 2;    // 블록단위 변수 영역
+        console.log(msg);
+    }
+    console.log(msg);
+
+    let msg4 = 4;
+    // let msg4 = 5; // 중복 선언 에러 발생
+
+    var msg5 = 4;
+    var msg5 = 5;
+    console.log(msg5);
+</script>
+</html>
