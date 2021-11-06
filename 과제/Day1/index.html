@@ -16,22 +16,57 @@
 
 <body>
     <div id="app">
-        <h2>작성자</h2> <input type="text" name="writer" v-model="writer" id="witer" ref=writer><br>
-        <h2>제목</h2> <input type="text" name="title" v-model="title" id="title" ref=writer><br>
-        <h2>내용</h2> <textarea name="desc" id="desc" v-model="desc" ref="desc" cols="30" rows="10"></textarea>
+        <h2>작성자</h2> <input type="text" name="writer" v-model="writer" id="writer" ref=writer><br>
+        <h2>제목</h2> <input type="text" name="title" v-model="title" id="title" ref=title><br>
+        <h2>내용</h2> <textarea name="desc" id="desc" v-model="desc" ref="desc" cols="30" rows="10"></textarea><br>
+        <input @click="save" type="button" id="saveBtn" value="저장">
+        <input @click="output" type="button" id="outputBtn" value="출력">
     </div>
 </body>
-    <script>
-        new Vue({
-            el:"app",
-            data(){
-                return{
-                    writer:"",
-                    title:"",
-                    desc:""
-                }
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                writer: "",
+                title: "",
+                desc: "",
             }
-        })
+        },
+        methods: {
+            save() {
+                document.getElementById("saveBtn").onclick = () => {
+                    let err = true;
+                    let msg = "";
+                    !this.writer.trim() && ((msg = "작성자를 입력해주세요"), (err = false), this.$refs.writer.focus());
+                    err && !this.title.trim() && ((msg = "제목을 입력해주세요"), (err=false), this.$refs.title.focus());
+                    err && !this.desc.trim() && ((msg = "설명을 입력해주세요"), (err=false), this.$refs.desc.focus());
 
-    </script>
+                    if (!err) alert(msg);
+                    else {
+                        let savebook = {
+                            writer: this.writer,
+                            title: this.title,
+                            desc: this.desc,
+                        }
+                        localStorage.setItem('booklist', JSON.stringify(savebook));
+                        this.writer = '';
+                        this.title = '';
+                        this.desc = '';
+                    }
+                }
+            },
+            output() {
+                document.getElementById("outputBtn").onclick = () => {
+                    const savebook2 = JSON.parse(localStorage.getItem('booklist'));
+                    // let savebook2 =localStorage.getItem('booklist');
+                    this.writer = savebook2.writer;
+                    this.title = savebook2.title;
+                    this.desc = savebook2.desc;
+                }
+            },
+        }
+    });
+</script>
+
 </html>
