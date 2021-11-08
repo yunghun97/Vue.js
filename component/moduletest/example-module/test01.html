@@ -17,8 +17,8 @@
       <my-global></my-global>
     </div>
     <script type="module">
-      import MyGlobal from './components/MyGlobal.js';
-
+      import MyGlobal from './components/MyGlobal.js'; // default로 보냄 이름 변경 가능
+      // import {MyGlobal} from './components/MyGlobal.js';
       Vue.component('MyGlobal', MyGlobal);
       new Vue({
         el: '#app1',

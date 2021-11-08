@@ -11,24 +11,25 @@
 <body>
   <div id="app">
     <h2>props test</h2>
-    <child-component propsdata="안녕하세요"></child-component>
+    <child-component propsdata1="안녕하세요"></child-component>
     <!-- 동적 props -->
-    <!-- <child-component v-bind:propsdata="message"></child-component> -->
+    <child-component v-bind:propsdata1="message"></child-component>
   </div>
   <script>
     //하위 컴포넌트
     Vue.component('childComponent', {
-      props: ['propsdata'],
-      template: '<span>{{ propsdata }}</span>',
+      props: ['propsdata1'],
+      template: '<span>{{ propsdata1 }}</span>',
     });
     new Vue({
       el: '#app',
-      // data() {
-      //   return {
-      //     message: 'hello ssafy',
-      //   };
-      // },
+      data() {
+        return {
+          message: 'hello ssafy1',
+        };
+      },
     });
+
   </script>
 </body>
 
