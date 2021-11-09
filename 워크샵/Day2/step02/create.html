@@ -52,18 +52,14 @@
             // isbn, 제목, 저자, 가격, 설명이 없을 경우 각 항목에 맞는 메세지를 출력
             let err = true;
             let msg = "";
-            
-            // true일 경우 && 실행할 문장
-            // false일 경우 || 실행할 문장
-            !this.isbn.trim() && ((msg = "isbn 입력해주세요"), (err = false), this.$refs.isbn.focus());
-            err && !this.title.trim() && ((msg = "제목 입력해주세요"), (err = false), this.$refs.title.focus());
-            err && !this.author.trim() && ((msg = "저자 입력해주세요"), (err = false), this.$refs.author.focus());
-            err && !this.price.trim() && ((msg = "가격 입력해주세요"), (err = false), this.$refs.price.focus());
-            err && !this.content.trim() && ((msg = "내용 입력해주세요"), (err = false), this.$refs.content.focus());
+            !this.isbn && ((msg = "isbn 입력해주세요"), (err = false), this.$refs.isbn.focus());
+            err && !this.title && ((msg = "제목 입력해주세요"), (err = false), this.$refs.title.focus());
+            err && !this.author && ((msg = "저자 입력해주세요"), (err = false), this.$refs.author.focus());
+            err && !this.price && ((msg = "가격 입력해주세요"), (err = false), this.$refs.price.focus());
+            err && !this.content && ((msg = "내용 입력해주세요"), (err = false), this.$refs.content.focus());
 
             if (!err) alert(msg);
             // 만약, 내용이 다 입력되어 있다면 registBook 호출
-            // Vue Instance안에 methods안에 메소드를 찾을때 this 붙이기 필수!
             else this.registBook();
           },
 
