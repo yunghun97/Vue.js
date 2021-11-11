@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Todo</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1 class="title">Todo 목록</h1>
+        <section class="buttonSection">
+            <button class="btn" @click="regist">할일등록</button>
+        </section>
+        <div class="task" v-for="item in todoList">
+            <label :for="item.title">제목 : </label><span :id="item.title">{{item.title}}</span><br>
+            <label :for="item.title">내용 : </label><span :id="item.content">{{item.content}}</span><br>
+            <label :for="item.title">완료여부 : </label><span :id="item.done">{{item.done}}</span><br>
+            <button class="btn">완료</button>
+            <button class="btn">삭제</button>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data(){
+                return{
+                    todoList:[]
+                }
+            },
+            created(){
+                todo={
+                    title:"SSAFY Vue.js 강의듣기",
+                    content:"SSAFY에서 제공하는 온라인 강의 듣기",
+                    done:"미완료"
+                }
+                console.log(todo);
+                this.todoList.push(todo);
+                this.todoList.push(todo);
+               /* this.todoList[0].title = "SSAFY Vue.js 강의듣기";
+                this.todoList[0].content="SSAFY에서 제공하는 온라인 강의 듣기";
+                this.todoList[0].done ="미완료";
+                console.log(this.todoList);*/
+            },
+            methods:{
+                regist(){
+                    
+                }
+            }
+        });
+        
+    </script>
+</body>
+
+</html>
