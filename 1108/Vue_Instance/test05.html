@@ -9,25 +9,15 @@
 </head>
 <body>
     <div id="app">
-        <div>{{message}}</div>
-        <div v-text="'message : '+message"></div>
-        <div v-text="`message :  ${message}`"></div>
-
-        <div v-html="'message : ' +message"></div>
-        <div v-html="`message : ${message}`"></div>
-        <div>{{count +10}}</div>  
-        <div>{{count > 10 ? count**3 : count*5}}</div>   
+        <div>count+10</div>  <!-- (1) -->
+        <div>{{count > 10 ? count**3 : count*5}}</div>  <!-- (2) -->
     </div>  
 </body>
     <script>
         let v = new Vue({
-                el:"#app",    // el 은 엘리먼트 약자
-                // data:{
-                //     message: "Hello Vue!!!!"
-                // }
+                el:"#app",
                 data(){
                     return{
-                        message: "<h2>Hello Vue!!!</h2>",
                         count:10
                     }
                 }
