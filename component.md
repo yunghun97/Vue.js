@@ -96,7 +96,34 @@ Vue.component('컴포넌트 이름', {
 5. ### html에 컴포넌트 태그(child-component)를 추가한다.
 6. ### 하위 컴포넌트에 v-bind 속성을 사용하면 상위 컴포넌트의 data의 key에 접근이 가능하다.(message)
 7. ### 상위 컴포넌트의 message 속성 값인 String 값이 하위 컴포넌트의 propsdata로 전달된다.
-8. ### 하위 컴포넌트의 template 속성에 정의된 ```html<span>{{}propsdata}}</span>```에게 전달된다.
+8. ### 하위 컴포넌트의 template 속성에 정의된 ```html<span>{{propsdata}}</span>```에게 전달된다.
+
+ex)
+```javaScript
+// 부모에서 하위 컴포넌트로 보낼 때
+<view-detail :book="book" />  //book이라는 이름으로 book data
+data(){
+  return{
+    data='asd';
+  }
+}
+components: {
+    ViewDetail,
+},
+
+// 받을 때
+props: {
+    // 상위 component로 부터 넘어온 도서정보
+    book: Object, // book은 Object 형태로 넘어온다. (숫자면 Number, 문자면 String)
+    
+    /* 다른 방법
+    book:{
+      type = Object,
+      required: true  //  반드시 넘어 온다는 뜻
+    }
+    */
+},
+```
 ---
 <br>
 
