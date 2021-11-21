@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <button>요청</button>
+    <div id="result"></div>
+    <script>
+      document.querySelector("button").addEventListener("click", () => {
+        axios.get("http://localhost:9999/cors/test03").then(({ data }) => {
+          console.dir(data);
+          console.dir(data.response.body);
+          console.dir(data.response.body.items);
+          console.dir(data.response.body.items.item);
+        });
+      });
+    </script>
+  </body>
+</html>

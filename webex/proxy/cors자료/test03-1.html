@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- 
+	CORS(Cross-Origin Resource Sharing)
+	CORS(Cross-origin 리소스 공유)는 한 도메인에서 로드되어 
+	다른 도메인에 있는 리소스와 상호 작용하는 클라이언트 웹 애플리케이션에 대한 방법을 정의합니다.
+
+	cors 에러 확인하기
+	- sop : same origin policy
+-->
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <button>요청</button>
+    <div id="result"></div>
+    <script>
+      console.log("location.origin", location.origin);
+
+      document.querySelector("button").addEventListener("click", () => {
+        const params = {
+          LAWD_CD: 11110,
+          DEAL_YMD: "202110",
+          serviceKey: "pzv4UpTuGz3HMtLEXYMjaNXIPjXV5MwAfse/ZgMuFdw1hXxwUGQQsl5ka14i4LuAapNA4NqChrh59MScqxN3Ng==",
+        };
+        axios
+          .get(
+            "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev",
+            { params }
+          )
+          .then(({ data }) => {
+            console.dir(data);
+            console.dir(data.response.body);
+          });
+      });
+    </script>
+  </body>
+</html>
